@@ -4,3 +4,20 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+# CSV parsing -- same as before, reads the Startups.csv row by row
+csv = "1.3"
+
+# Serde handles serialization/deserialization -- maps CSV rows to structs
+serde = { version = "1.0", features = ["derive"] }
+
+# ndarray is Rust's NumPy equivalent -- gives us n-dimensional arrays
+# and matrix operations that linfa requires as input
+ndarray = "0.15"
+
+# linfa is the core ML framework (scikit-learn equivalent for Rust)
+# It defines the standard Fit/Predict traits all algorithms implement
+linfa = "0.7"
+
+# The actual linear regression algorithm, separate crate from linfa core.
+# linfa splits each algorithm into its own crate so you only pull in what you need.
+linfa-linear = "0.7"
